@@ -1,0 +1,122 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    <h1>One Rep Max Result</h1><br>
+    <br>
+    <div class="flex-box-row">
+       <h5 class="mr-2">Your estimated one rep max is {{rm}} {{units}}</h5>
+       <table class="table table-sm table table-bordered table table-striped">
+           <thead class="thead-dark">
+                <tr>
+                    <th>Percentage of 1RM</th>
+                    <th>Weight</th>
+                    <th>Repetitions</th>
+                </tr>
+           </thead>
+            <tr>
+                <td> 100% </td>
+                <td> {{rm}} </td>
+                <td> 1 </td>
+            </tr>
+            <tr>
+                <td> 95% </td>
+                <td> {{rm2}} </td>
+                <td> 2 </td>
+            </tr>
+            <tr>
+                <td> 90% </td>
+                <td> {{rm3}} </td>
+                <td> 3 </td>
+            </tr>
+            <tr>
+                <td> 88% </td>
+                <td> {{rm4}} </td>
+                <td> 4 </td>
+            </tr>
+            <tr>
+                <td> 86% </td>
+                <td> {{rm5}} </td>
+                <td> 5 </td>
+            </tr>
+            <tr>
+                <td> 83% </td>
+                <td> {{rm6}} </td>
+                <td> 6 </td>
+            </tr>
+            <tr>
+                <td> 80% </td>
+                <td> {{rm7}} </td>
+                <td> 7 </td>
+            </tr>
+            <tr>
+                <td> 78% </td>
+                <td> {{rm8}} </td>
+                <td> 8 </td>
+            </tr>
+            <tr>
+                <td> 76% </td>
+                <td> {{rm9}} </td>
+                <td> 9 </td>
+            </tr>
+            <tr>
+                <td> 75% </td>
+                <td> {{rm10}} </td>
+                <td> 10 </td>
+            </tr>
+            <tr>
+                <td> 72% </td>
+                <td> {{rm11}} </td>
+                <td> 11 </td>
+            </tr>
+            <tr>
+                <td> 70% </td>
+                <td> {{rm12}} </td>
+                <td> 12 </td>
+            </tr>
+            <tr>
+                <td> 68% </td>
+                <td> {{rm13}} </td>
+                <td> 13 </td>
+            </tr>
+            <tr>
+                <td> 67% </td>
+                <td> {{rm14}} </td>
+                <td> 14 </td>
+            </tr>
+            <tr>
+                <td> 66% </td>
+                <td> {{rm15}} </td>
+                <td> 15 </td>
+            </tr>
+            <tr>
+                <td> 65% </td>
+                <td> {{rm16}} </td>
+                <td> 16 </td>
+            </tr>
+            <tr>
+                <td> 63% </td>
+                <td> {{rm17}} </td>
+                <td> 17 </td>
+            </tr>
+            <tr>
+                <td> 62% </td>
+                <td> {{rm18}} </td>
+                <td> 18 </td>
+            </tr>
+            <tr>
+                <td> 61% </td>
+                <td> {{rm19}} </td>
+                <td> 19 </td>
+            </tr>
+            <tr>
+                <td> 60% </td>
+                <td> {{rm20}} </td>
+                <td> 20 </td>
+            </tr>
+        </table>
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            The units are {{units}}
+        </small>
+    </div>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'navbar.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h2>Log In</h2>
+    <div class="border-bottom pt-3">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark" type="submit">Log In</button>
+        </form>
+    </div>
+    <div>
+        <br>
+        <small class="text-muted">
+            You Do Not Have An Account? <a class="ml-2" href="{% url 'register' %}">Sign In</a>
+            <br>
+            Forgot your password? <a class="ml-2" href="{% url 'password-reset' %}">Reset Password</a>
+        </small>
+    </div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    <h1>Body Measurements Calculator</h1>
+    <form action="cmr">
+        <h5>Please, enter the values requested:</h5>
+        <small class="text-muted">
+            Don't cheat as it will only make the results inaccurate
+        </small>
+        <br>
+        <br>
+        {{ form.as_p }}
+        <input type="submit" value="Calculate One Rep Max" class="btn btn-dark">
+    </form>
+{% endblock content %}

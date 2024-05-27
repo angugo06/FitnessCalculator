@@ -1,0 +1,36 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    <h1>Calorie Calculator</h1>
+    <div class="flex-box-row">
+        <h4 class="mr-2">Available Food Items</h4>
+            <table class="table table-sm table table-bordered table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Carb</th>
+                        <th>Fat</th>
+                        <th>Protein</th>
+                        <th>Calories</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                {% for items in food_items %}
+                <tr>
+                    <td>{{items.name}} </td>
+                    <td>{{items.carbohydrate}} </td>
+                    <td>{{items.fat}} </td>
+                    <td>{{items.protein}} </td>
+                    <td>{{items.calories}} </td>
+                    <td>{% for category in items.category.all %}{{category.name}}. {% endfor %}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    </div>
+    <div>
+        <form>
+            <label>
+                <input class="search" type="text" name="search" placeholder="Search..">
+            </label>
+        </form>
+    </div>
+{% endblock content %}

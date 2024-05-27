@@ -1,0 +1,9 @@
+
+dpython:S2208"GImport only needed names or import the module and then use its members.(ÅÙï„úÿÿÿÿ
+dpython:S2208"GImport only needed names or import the module and then use its members.(½Ãêùÿÿÿÿÿ
+@python:S1481»"(Remove the unused local variable "bbfc".(ğïÿ
+Fpython:S1481½"(Remove the unused local variable "bbfc".(§Ô…¨øÿÿÿÿ
+Fpython:S1481¿"(Remove the unused local variable "bbfc".(³Æ”şÿÿÿÿ
+mpython:S3776¥"TRefactor this function to reduce its Cognitive Complexity from 62 to the 15 allowed.(·Øö
+spython:S1186÷"[Add a nested comment explaining why this function is empty, or complete the implementation.(èÂêa
+tpython:S1186û"[Add a nested comment explaining why this function is empty, or complete the implementation.(€®ˆˆ

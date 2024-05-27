@@ -1,0 +1,9 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    <h2>You logged out</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a class="abc" href='{% url "login" %}'>Log In</a>
+        </small>
+    </div>
+{% endblock content %}

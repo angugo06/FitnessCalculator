@@ -1,0 +1,303 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    <h1>Body Measurements Calculator Result</h1>
+    <br>
+    <div class="flex-box-row">
+        <h2 class="mr-2">Estimated Caloric Maintenance</h2>
+        <div>
+            <div>
+                <a class="ml-2" href="{% url 'cm' %}">
+                    <button style="{display: inline-block; height: 134px; padding: 0; margin: 0; vertical-align: top; width: 104px;}" class="close-image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAIAAABK/LdUAAAEfElEQVRYhd2XXSi7bRzHL5u3bEnysokhZIuVhDTZkhlp856WFSYKObAkCXGwHNhIyQHyEg44oL0oxJKDqbHlQE2SjTSzvKVoW9v4H6yu597t3oae/k8936Pf93dduz67fvf1ct8Bd3d34C8K9zdh/wEv8Ee9LRbL6upqeno6l8t1Z6hUKoFAoFAohYWFpaWlGRkZvkf47vy0Wm1nZ2deXt74+PjT0xOyyWw2azQaqVRaUlJSVFSkUCh+z7PZbOvr62VlZRUVFTKZzOFw+O5/cXHR3t4uEAheXl4wO3itp9lsXl1dXVlZeXx8RDUFBQX5ph4cHPB4vMXFxbS0NP+84+Pj+fn5nZ0db7MJCAiA8dHRkclk0mg0crlcp9PBvMFgqKurk8vlSUlJyN961FOhUHA4nKqqKqVS6bd0bkVGRtLp9NbWVqVSubS0RCaTYdPDw0Nra6vVavXKYzAYOTk5fsvlTRwOZ3t7OzMzE2b0ev3k5KRXXlRU1OjoqEqlKi8v9zFucHCwt6aYmJjl5WUSiQQzs7OzFosFm+dWampqeXk5Dud16fpoAgCQSKSxsTFo7Xb78vKyL55OpxOJRB8fH95GRK4XTLHZ7KysLGjlcrlXntVq7erqQi2W0tLS6OhoaH3UE6qmpgbGBoPBZDJh8+bm5m5ubv75OzicVCpdXFxUq9UikSgsLMwvya2cnBykPT8/x+DZbLaZmRlkpru7u6GhAQBAJBJ7e3vVarVAIMDj8X55yCUDADCbze7AY7/v7+8jz6G8vDyRSITsEBsbK5FI/MIAAC6XC2ntdrs78JjfwcEB0vb19X1nKpi6v79HWgKBgME7OzuDcXx8fH5+/u9gAACNRoO0iYmJGLzr62sY5+bm+l333vT5+bmxsQEtHo+Hh44H7/39Hcbx8fG/gwEANjc34YIEAGRnZ4eHh2PwQkJCfjSuzWarrq4+OTlBJo1GY39/PzLD5/Nh7MGLi4uDMeqBe5NGo6msrGxpabm8vAQAmEymxsbGt7c32IFMJldXV0PrsR+oVKrBYHDHWq32Ozy3dnZ29vb2eDze4eEh6mYfHh4ODQ2F1mN+BQUFMDYajaenp99HulwumUyGgjU2NlZUVCAzHjwul4u8/CYmJr7P+6ri4mKxWIxKevCio6OrqqqgValUS0tLv+ZdXV1tbW2h7pkA1Pv87e0ti8Wy2WxuGxQUNDU1haoJlNPppFAovql0On1gYIDJZLot+n5ISEgYHByE1uFwdHR0jIyMIJccVGCg/9dlo9G4u7v7+vrqtuj5AQA+Pz97enrW1taQycjIyNra2uLi4uTkZDKZDEnILYRSSkqKUCisr68nEokwicEDALhcruHh4YWFBcyBpqen4Zb6ysPhcGw2u7m5mcVifT0RsQuCx+PFYjGNRhsaGoLP0q8iIiL4fH5TUxM8nb/K1wMQCARMJlMikchkMqfT6aMnjUYTCoU1NTV+XwCw64nS8/OzSqXa29vT6/Umk2liYgLWs62tTSgUMhgMv4P8gPcv6v/+ffsHonmvWqS7QSIAAAAASUVORK5CYII="> Calculate Again</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h5 class="flex-box-row">{{ecm}} daily calories</h5>
+        <table class="table table-sm table table-bordered table table-striped" style="margin-bottom:10px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Activity Level</th>
+                    <th>Calorie Intake (per day)</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Basal Metabolic Rate</td>
+                    <td>{{bmr}}</td>
+                </tr>
+                <tr class="{% if act == 'sedentary' %} green {% endif %}">
+                    <td>Sedentary</td>
+                    <td>{{dcis}}</td>
+                </tr>
+                <tr class="{% if act == 'lightly active' %} green {% endif %}">
+                    <td>Lightly Active</td>
+                    <td>{{dcil}}</td>
+                </tr>
+                <tr class="{% if act == 'moderately active' %} green {% endif %}">
+                    <td>Moderately Active</td>
+                    <td>{{dcim}}</td>
+                </tr>
+                <tr class="{% if act == 'very active' %} green {% endif %}">
+                    <td>Very Active</td>
+                    <td>{{dciv}}</td>
+                </tr>
+                <tr class="{% if act == 'extremely active' %} green {% endif %}">
+                    <td>Extremely Active</td>
+                    <td>{{dcie}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <small class="text-muted">
+            This was calculated using the Harris–Benedict equation
+        </small>
+    </div>
+    <div>
+        <br>
+        <div class="flex-box-row">
+            <h2 class="mr-2">Body Mass Index</h2>
+        </div>
+        <div>
+            <h5 class="flex-box-row">{{bmi}} bmi</h5>
+            <table class="table table-sm table table-bordered table table-striped" style="margin-bottom:10px;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>BMI</th>
+                        <th>Status</th>
+                        <th>Risk Of Developing Associated Illness</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="{% if bmic == 'underweight' %} green {% endif %}">
+                        <td>Under 18.5</td>
+                        <td>Underweight</td>
+                        <td>Low (higher risk of different illnesses)</td>
+                    </tr>
+                    <tr class="{% if bmic == 'normal' %} green {% endif %}">
+                        <td>18.5 – 24.9</td>
+                        <td>Normal</td>
+                        <td>Average</td>
+                    </tr>
+                    <tr class="{% if bmic == 'overweight' %} green {% endif %}">
+                        <td>25 – 29.9</td>
+                        <td>Overweight</td>
+                        <td>Slightly High</td>
+                    </tr>
+                    <tr class="{% if bmic == 'obese' %} green {% endif %}">
+                        <td>30 – 24.9</td>
+                        <td>Obese (1st degree)</td>
+                        <td>High</td>
+                    </tr>
+                    <tr class="{% if bmic == 'obese1' %} green {% endif %}">
+                        <td>35 – 39.9</td>
+                        <td>Obese (2st degree)</td>
+                        <td>Very High</td>
+                    </tr>
+                    <tr class="{% if bmic == 'obese2' %} green {% endif %}">
+                        <td>Over 40</td>
+                        <td>Obese (3st degree)</td>
+                        <td>Extremely High</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="flex-box-row">
+            <h2 class="mr-2">Body Fat Percentage</h2>
+        </div>
+        <div>
+            {% if not bf %}
+                <h5 class="flex-box-row">{{bf1}}% estimated body fat</h5>
+            {% else %}
+                <h5 class="flex-box-row">{{bf}}% body fat</h5>
+            {% endif %}
+            <table class="table table-sm table table-bordered table table-striped" style="margin-bottom:10px;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Status</th>
+                        <th>Male (%)</th>
+                        <th>Female (%)</th>
+                        <th>Total Body Fat (kg)</th>
+                        <th>Fat Free Mass (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="{% if bfc == 'ef' or bfcf == 'ef' %} green {% endif %}">
+                        <td>Essential Fat</td>
+                        <td class="{% if bfc == 'ef' %} font-weight-bold {% endif %}">Under 5.9</td>
+                        <td class="{% if bfcf == 'ef' %} font-weight-bold {% endif %}">Under 13.9</td>
+                        <td>
+                            {% if bfc == 'ef' or bfcf == 'ef' %}
+                                ≈{{tbfc}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{tbfm1}}
+                                {% else %}
+                                    ≈{{tbff1}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if bfc == 'ef' or bfcf == 'ef' %}
+                                ≈{{ffm}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{ffmm1}}
+                                {% else %}
+                                    ≈{{ffmf1}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr class="{% if bfc == 'a' or bfcf == 'a' %} green {% endif %}">
+                        <td>Athlete</td>
+                        <td class="{% if bfc == 'a' %} font-weight-bold {% endif %}">6 – 13.9</td>
+                        <td class="{% if bfcf == 'a' %} font-weight-bold {% endif %}">14 – 20.9</td>
+                        <td>
+                            {% if bfc == 'a' or bfcf == 'a' %}
+                                ≈{{tbfc}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{tbfm2}}
+                                {% else %}
+                                    ≈{{tbff2}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if bfc == 'a' or bfcf == 'a' %}
+                                ≈{{ffm}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{ffmm2}}
+                                {% else %}
+                                    ≈{{ffmf2}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr class="{% if bfc == 'f' or bfcf == 'f' %} green {% endif %}">
+                        <td>Fitness</td>
+                        <td class="{% if bfc == 'f' %} font-weight-bold {% endif %}">14 – 17.9</td>
+                        <td class="{% if bfcf == 'f' %} font-weight-bold {% endif %}">21 – 24.9</td>
+                        <td>
+                            {% if bfc == 'f' or bfcf == 'f' %}
+                                ≈{{tbfc}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{tbfm3}}
+                                {% else %}
+                                    ≈{{tbff3}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if bfc == 'f' or bfcf == 'f' %}
+                                ≈{{ffm}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{ffmm3}}
+                                {% else %}
+                                    ≈{{ffmf3}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr class="{% if bfc == 'aa' or bfcf == 'aa' %} green {% endif %}">
+                        <td>Acceptable</td>
+                        <td class="{% if bfc == 'aa' %} font-weight-bold {% endif %}">18 – 24.9</td>
+                        <td class="{% if bfcf == 'aa' %} font-weight-bold {% endif %}">25 – 31.9</td>
+                        <td>
+                            {% if bfc == 'aa' or bfcf == 'aa' %}
+                                ≈{{tbfc}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{tbfm4}}
+                                {% else %}
+                                    ≈{{tbff4}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if bfc == 'aa' or bfcf == 'aa' %}
+                                ≈{{ffm}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{ffmm4}}
+                                {% else %}
+                                    ≈{{ffmf4}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr class="{% if bfc == 'o' or bfcf == 'o' %} green {% endif %}">
+                        <td>Obese</td>
+                        <td class="{% if bfc == 'o' %} font-weight-bold {% endif %}">Over 25</td>
+                        <td class="{% if bfcf == 'o' %} font-weight-bold {% endif %}">Over 32</td>
+                        <td>
+                            {% if bfc == 'o' or bfcf == 'o' %}
+                                ≈{{tbfc}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{tbfm5}}
+                                {% else %}
+                                    ≈{{tbff5}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if bfc == 'o' or bfcf == 'o' %}
+                                ≈{{ffm}}
+                            {% else %}
+                                {% if sex == 'male'%}
+                                    ≈{{ffmm5}}
+                                {% else %}
+                                    ≈{{ffmf5}}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="flex-box-row">
+            <h2 class="mr-2">Free-Fat Mass Index</h2>
+        </div>
+        <div>
+            <h5 class="flex-box-row">{{ffmi}} kg/m² ffmi</h5>
+            <h5 class="flex-box-row">{{ffmi}} kg/m²  normalized ffmi</h5>
+            <table class="table table-sm table table-bordered table table-striped" style="margin-bottom:10px;">
+
+            </table>
+                <br>
+            <table width=100% style='font-family: monospace;'>
+                <tr style='border-bottom: 1px solid #000;'>
+                    <td>
+                        0
+                    </td><td>
+                        1
+                    </td><td>
+                        2
+                    </td><td>
+                        3
+                    </td><td width=1%>
+                        4
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        |
+                    </td><td>
+                        |
+                    </td><td class="green">
+                        |
+                    </td><td class="green">
+                        |
+                    </td><td width=1%>
+                        |
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock content %}
